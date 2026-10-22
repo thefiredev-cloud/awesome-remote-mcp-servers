@@ -106,9 +106,9 @@ Hi-res: [SVG](architecture/containers.svg) · [PNG 3x](architecture/containers@3
 | Container | Kind | Tech | What it does | Evidence |
 |---|---|---|---|---|
 | README.md list | store | Markdown, ~3,000 lines | The curated server list. | [`README.md#L1-L25`](../README.md#L1-L25) |
-| check-submission job | job | GitHub Actions, read-only token | Checks out the BASE branch, parses the PR diff, probes new endpoints (max 25 per PR). | [`.github/workflows/check-submission.yml#L46-L71`](../.github/workflows/check-submission.yml#L46-L71), [`.github/scripts/check-submission.js#L10-L14`](../.github/scripts/check-submission.js#L10-L14) |
+| check-submission job | job | GitHub Actions, read-only token | Checks out the BASE branch, parses the PR diff, probes new endpoints (max 25 per PR). | [`.github/workflows/check-submission.yml#L46-L73`](../.github/workflows/check-submission.yml#L46-L73), [`.github/scripts/check-submission.js#L10-L14`](../.github/scripts/check-submission.js#L10-L14) |
 | safe-fetch.js | app | Node https | https on 443 only, DNS names only, public addresses only, validated connect address, re-validated redirects (max 3). | [`.github/scripts/safe-fetch.js#L89-L103`](../.github/scripts/safe-fetch.js#L89-L103), [`.github/scripts/safe-fetch.js#L162-L180`](../.github/scripts/safe-fetch.js#L162-L180) |
-| report job | job | GitHub Actions, write token | Runs no contributor URL probes. Allowlists label names and comment ids, caps bodies at 60,000 chars. | [`.github/workflows/check-submission.yml#L76-L124`](../.github/workflows/check-submission.yml#L76-L124) |
+| report job | job | GitHub Actions, write token | Runs no contributor URL probes. Allowlists label names and comment ids, caps bodies at 60,000 chars. | [`.github/workflows/check-submission.yml#L78-L127`](../.github/workflows/check-submission.yml#L78-L127) |
 | welcome job | job | GitHub Actions | Posts a thank-you comment once a PR is merged. | [`.github/workflows/check-submission.yml#L12-L39`](../.github/workflows/check-submission.yml#L12-L39) |
 | safe-fetch tests | job | node test | Unit tests for the guard. | [`.github/scripts/safe-fetch.test.js`](../.github/scripts/safe-fetch.test.js) |
 
@@ -192,10 +192,10 @@ Hi-res: [SVG](architecture/deployment.svg) · [PNG 3x](architecture/deployment@3
 
 | Failure | What the user sees | How to see it | Evidence |
 |---|---|---|---|
-| Endpoint unreachable or wrong URL | PR labelled endpoint-unreachable with a comment | Labels and comments on the PR | [`.github/scripts/check-submission.js#L139-L144`](../.github/scripts/check-submission.js#L139-L144), [`.github/workflows/check-submission.yml#L92-L95`](../.github/workflows/check-submission.yml#L92-L95) |
+| Endpoint unreachable or wrong URL | PR labelled endpoint-unreachable with a comment | Labels and comments on the PR | [`.github/scripts/check-submission.js#L139-L144`](../.github/scripts/check-submission.js#L139-L144), [`.github/workflows/check-submission.yml#L95-L98`](../.github/workflows/check-submission.yml#L95-L98) |
 | More than 25 new entries in one PR | Extra entries are not probed | Comment `not probed: more than 25 new entries` | [`.github/scripts/check-submission.js#L10`](../.github/scripts/check-submission.js#L10), [`.github/scripts/check-submission.js#L140-L143`](../.github/scripts/check-submission.js#L140-L143) |
 | Contributor points a probe at an internal address | Blocked before connect; EBLOCKED | Error from guarded lookup | [`.github/scripts/safe-fetch.js#L105-L116`](../.github/scripts/safe-fetch.js#L105-L116) |
-| Result JSON carries unexpected labels | Dropped by the allowlist | Label missing from the PR | [`.github/workflows/check-submission.yml#L92-L104`](../.github/workflows/check-submission.yml#L92-L104) |
+| Result JSON carries unexpected labels | Dropped by the allowlist | Label missing from the PR | [`.github/workflows/check-submission.yml#L95-L107`](../.github/workflows/check-submission.yml#L95-L107) |
 
 ## 9. State machine
 
