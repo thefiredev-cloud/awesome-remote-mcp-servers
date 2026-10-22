@@ -1,0 +1,16 @@
+sequenceDiagram
+  autonumber
+  actor c as Contributor
+  participant pr as Pull request
+  participant chk as check-submission (read-only)
+  participant sf as safe-fetch
+  participant ep as New endpoint
+  participant rep as report (write)
+  c->>pr: add server line to README.md
+  pr->>chk: pull_request_target: opened, edited, synchronize
+  Note over chk: checks out the base branch, never PR code
+  chk->>sf: probe each new endpoint (max 25)
+  sf->>ep: https POST handshake, 20 s timeout
+  ep-->>sf: status and headers
+  chk->>rep: result JSON: labels and comments
+  rep->>pr: apply allowlisted labels, post comments once per marker

@@ -1,0 +1,30 @@
+flowchart TB
+  contrib(["Contributor"]):::actor
+  reader(["Reader / MCP client user"]):::actor
+  maint(["Maintainer"]):::actor
+  endpoints{{"Contributor-supplied MCP endpoints"}}:::ext
+  ghapi{{"GitHub API (labels, comments)"}}:::ext
+  subgraph SYSTEM["awesome-remote-mcp-servers"]
+    list[("README.md list<br/>Markdown, ~3,000 lines")]:::store
+    probe["check-submission job<br/>GitHub Actions, read-only token"]:::job
+    safe["safe-fetch.js<br/>Node https"]:::app
+    report["report job<br/>GitHub Actions, write token"]:::job
+    welcome["welcome job<br/>GitHub Actions"]:::job
+    tests["safe-fetch tests<br/>node test"]:::job
+  end
+  contrib -->|"PR adds a line"| list
+  list -.->|"PR event triggers"| probe
+  probe -->|"all requests"| safe
+  safe -->|"https handshake probe"| endpoints
+  probe -->|"result JSON (untrusted)"| report
+  report -->|"labels + comments"| ghapi
+  maint -->|"merge"| list
+  list -.->|"merged event"| welcome
+  welcome -->|"comment"| ghapi
+  reader -->|"reads"| list
+  tests -.->|"unit tests"| safe
+  classDef actor fill:#fde68a,stroke:#b45309,color:#111827
+  classDef app fill:#bfdbfe,stroke:#1d4ed8,color:#0b1220
+  classDef ext fill:#e5e7eb,stroke:#4b5563,color:#0b1220,stroke-dasharray:4 3
+  classDef job fill:#fbcfe8,stroke:#be185d,color:#0b1220
+  classDef store fill:#bbf7d0,stroke:#15803d,color:#0b1220
