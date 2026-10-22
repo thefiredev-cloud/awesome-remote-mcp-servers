@@ -1,0 +1,11 @@
+flowchart LR
+  ep{{"Submitted MCP endpoints"}}:::ext
+  subgraph host_gha["GitHub Actions (ubuntu-latest)"]
+    welcome["welcome<br/>PR closed and merged"]:::job
+    check["check-submission<br/>PR opened, edited, synchronize"]:::job
+    report["report<br/>after check-submission"]:::job
+  end
+  check -->|"https probe"| ep
+  check -->|"output"| report
+  classDef ext fill:#e5e7eb,stroke:#4b5563,color:#0b1220,stroke-dasharray:4 3
+  classDef job fill:#fbcfe8,stroke:#be185d,color:#0b1220

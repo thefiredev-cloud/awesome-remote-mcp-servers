@@ -3012,6 +3012,36 @@ Entries with a [Glama connector](https://glama.ai/mcp/connectors) badge have bee
 * [awesome-mcp-clients](https://github.com/punkpeye/awesome-mcp-clients) – clients that speak MCP
 * [glama.ai/mcp/connectors](https://glama.ai/mcp/connectors) – searchable directory of remote servers
 
+<!-- arch:begin -->
+## Architecture
+
+A curated list of hosted MCP servers, with a hardened pull-request checker that probes each new endpoint.
+
+```mermaid
+flowchart LR
+  contrib(["Contributor"]):::actor
+  list[("README list<br/>the product")]:::store
+  probe["Probe job<br/>read-only token"]:::job
+  safe["safe-fetch<br/>SSRF guard"]:::app
+  endpoints{{"Submitted endpoints<br/>public https only"}}:::ext
+  report["Report job<br/>labels + comments"]:::job
+  maint(["Maintainer"]):::actor
+  contrib -->|"opens PR"| list
+  list -->|"triggers"| probe
+  probe -->|"via"| safe
+  safe -->|"probes"| endpoints
+  probe -->|"result"| report
+  report -->|"labels"| maint
+  classDef actor fill:#fde68a,stroke:#b45309,color:#111827
+  classDef app fill:#bfdbfe,stroke:#1d4ed8,color:#0b1220
+  classDef ext fill:#e5e7eb,stroke:#4b5563,color:#0b1220,stroke-dasharray:4 3
+  classDef job fill:#fbcfe8,stroke:#be185d,color:#0b1220
+  classDef store fill:#bbf7d0,stroke:#15803d,color:#0b1220
+```
+
+[Full architecture](docs/ARCHITECTURE.md) · Hi-res: [SVG](docs/architecture/whiteboard.svg) · [PNG 3x](docs/architecture/whiteboard@3x.png) · [dark PNG](docs/architecture/whiteboard.dark@3x.png) · [Explorable (Archify)](docs/architecture/awesome-remote-mcp-servers.archify.html) · [Graphify report](docs/architecture/graphify/GRAPH_REPORT.md)
+<!-- arch:end -->
+
 ## Contributing
 
 Found a remote server that belongs here? See [CONTRIBUTING.md](CONTRIBUTING.md).

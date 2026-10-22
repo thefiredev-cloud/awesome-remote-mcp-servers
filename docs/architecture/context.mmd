@@ -1,0 +1,16 @@
+flowchart LR
+  contrib(["Contributor"]):::actor
+  reader(["Reader / MCP client user"]):::actor
+  maint(["Maintainer"]):::actor
+  SYSTEM["awesome-remote-mcp-servers<br/>the system in this repo"]:::app
+  endpoints{{"Contributor-supplied MCP endpoints"}}:::ext
+  ghapi{{"GitHub API (labels, comments)"}}:::ext
+  contrib -->|"PR adds a line"| SYSTEM
+  SYSTEM -->|"https handshake probe"| endpoints
+  SYSTEM -->|"labels + comments"| ghapi
+  maint -->|"merge"| SYSTEM
+  SYSTEM -->|"comment"| ghapi
+  reader -->|"reads"| SYSTEM
+  classDef actor fill:#fde68a,stroke:#b45309,color:#111827
+  classDef app fill:#bfdbfe,stroke:#1d4ed8,color:#0b1220
+  classDef ext fill:#e5e7eb,stroke:#4b5563,color:#0b1220,stroke-dasharray:4 3

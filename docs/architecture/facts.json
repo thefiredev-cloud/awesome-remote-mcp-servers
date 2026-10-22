@@ -1,0 +1,86 @@
+{
+ "repo": "awesome-remote-mcp-servers",
+ "files_tracked": 9,
+ "head": "5646a52f9cf7ff39d0e369cdfd7e796ce5cbefdd",
+ "origin": "https://github.com/thefiredev-cloud/awesome-remote-mcp-servers.git",
+ "default_branch": "main",
+ "languages": [
+  [
+   ".md",
+   3
+  ],
+  [
+   ".js",
+   3
+  ],
+  [
+   ".yml",
+   1
+  ]
+ ],
+ "readme": "README.md",
+ "readme_first_paragraph": "A curated list of remote [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) servers \u2014 hosted endpoints you connect to over a URL. No install, no runtime, no local process.h",
+ "top_dirs": [
+  ".github"
+ ],
+ "manifests": [],
+ "libs": [],
+ "entry_points": [],
+ "services": [],
+ "deploy_targets": [],
+ "ci_workflows": [
+  {
+   "path": ".github/workflows/check-submission.yml",
+   "name": "Check Submission",
+   "on": [
+    "pull_request_target"
+   ],
+   "jobs": [
+    "welcome",
+    "check-submission",
+    "report"
+   ],
+   "deploy_hints": []
+  }
+ ],
+ "cron_and_timers": [],
+ "files_scanned": 4,
+ "external_hosts": [
+  {
+   "host": "glama.ai",
+   "count": 10,
+   "first": ".github/scripts/check-submission.js:124"
+  },
+  {
+   "host": "homepage.example",
+   "count": 1,
+   "first": ".github/scripts/check-submission.js:194"
+  }
+ ],
+ "env_var_names": [
+  {
+   "name": "RESULT",
+   "first": ".github/workflows/check-submission.yml"
+  }
+ ],
+ "ci_secret_names": [],
+ "data_store_signals": {},
+ "auth_signals": {
+  "OAuth": [
+   ".github/scripts/check-submission.js:63"
+  ],
+  "Auth middleware": [
+   ".github/scripts/check-submission.js:104"
+  ],
+  "Binds all interfaces": [
+   ".github/scripts/safe-fetch.js:29"
+  ],
+  "Secrets from env or CI secrets": [
+   ".github/workflows/check-submission.yml:102"
+  ]
+ },
+ "tests": [
+  ".github/scripts/safe-fetch.test.js"
+ ],
+ "docs_files": []
+}

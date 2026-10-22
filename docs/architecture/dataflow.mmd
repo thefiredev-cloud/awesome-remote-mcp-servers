@@ -1,0 +1,15 @@
+flowchart LR
+  maint(["Maintainer"]):::actor
+  probe["check-submission job"]:::job
+  list[("README.md list")]:::store
+  welcome["welcome job"]:::job
+  contrib(["Contributor"]):::actor
+  reader(["Reader / MCP client user"]):::actor
+  contrib -->|"PR adds a line"| list
+  list -.->|"PR event triggers"| probe
+  maint -->|"merge"| list
+  list -.->|"merged event"| welcome
+  reader -->|"reads"| list
+  classDef actor fill:#fde68a,stroke:#b45309,color:#111827
+  classDef job fill:#fbcfe8,stroke:#be185d,color:#0b1220
+  classDef store fill:#bbf7d0,stroke:#15803d,color:#0b1220
