@@ -65,16 +65,19 @@ jobs:
         id: check
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
+          # github-script writes the script's return value to the `result`
+          # output after the script ends (JSON, see result-encoding), so return
+          # the validator result instead of calling core.setOutput('result').
           script: |
             const checkSubmission = require('./.github/scripts/check-submission.js');
-            const result = await checkSubmission({ github, context });
-            core.setOutput('result', JSON.stringify(result));
+            return await checkSubmission({ github, context });
 
   # Privileged: applies labels and comments. Runs no contributor URL probes and
   # checks out nothing. It treats the validator output as untrusted data:
   # label names and comment ids are allowlisted and bodies are length-capped.
   report:
     needs: check-submission
+    if: github.event.action != 'closed'
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
