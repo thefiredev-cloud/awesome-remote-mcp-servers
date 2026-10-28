@@ -1,23 +1,22 @@
 The Fire Dev LLC
 Proprietary and Confidential
 
-This repository is proprietary to The Fire Dev LLC.
+This repository carries an open source LICENSE. That LICENSE governs the
+code it covers.
 
 Copyright (c) 2026 The Fire Dev LLC. All rights reserved.
 
-OWNERSHIP
-- Original source code, documentation, designs and assets in this
-  repository are owned by The Fire Dev LLC.
-- Ownership is claimed as copyright in the expressive elements of the
-  Work and as trade secret in the non-public algorithms, data structures,
-  configuration, model weights, prompts and pricing logic.
-
-CONTRIBUTORS
-- Human contributors assign copyright to The Fire Dev LLC by written
-  present-tense assignment before or upon contributing.
-- AI coding agents are tools directed by The Fire Dev LLC. Output is
-  owned by The Fire Dev LLC to the extent human authorship is perceptible
-  in selection, arrangement and modification.
+SCOPE OF OUR CLAIM
+- The Fire Dev LLC claims copyright only in its own original
+  contributions to this repository: modifications, additions,
+  configuration, integration and documentation written by The Fire Dev
+  LLC or by agents directed by it.
+- Nothing in this NOTICE relicenses third-party code under proprietary
+  terms. Third-party components remain under their own licenses.
+- Material in this repository that is not published under the open source
+  LICENSE, such as internal branches, prompts, configuration, model
+  weights and pricing logic, remains proprietary and confidential to The
+  Fire Dev LLC.
 
 TRADE SECRET
 - Non-public content of this repository is a trade secret of The Fire Dev
@@ -25,17 +24,3 @@ TRADE SECRET
 - Disclosing proprietary content to a public consumer AI service may
   destroy trade secret status. Use local or contractually confidential
   inference for proprietary material.
-
-THIRD-PARTY COMPONENTS
-- Open source dependencies remain under their own licenses. See
-  dependency manifests and lockfiles.
-
-
-UPSTREAM SCOPE
-- This repository is derived from third-party open source code. The
-  upstream LICENSE in this repository continues to govern the upstream
-  code.
-- The Fire Dev LLC claims copyright only in its own original
-  contributions: modifications, additions, configuration and integration
-  work made by The Fire Dev LLC.
-- Nothing here relicenses upstream code under proprietary terms.
