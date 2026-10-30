@@ -1,26 +1,23 @@
-The Fire Dev LLC
+Tanner Osterkamp
 Proprietary and Confidential
 
 This repository carries an open source LICENSE. That LICENSE governs the
 code it covers.
 
-Copyright (c) 2026 The Fire Dev LLC. All rights reserved.
+Copyright (c) 2026 Tanner Osterkamp. All rights reserved.
 
 SCOPE OF OUR CLAIM
-- The Fire Dev LLC claims copyright only in its own original
+- Tanner Osterkamp claims copyright only in its own original
   contributions to this repository: modifications, additions,
-  configuration, integration and documentation written by The Fire Dev
-  LLC or by agents directed by it.
+  configuration, integration and documentation written by Tanner Osterkamp or by agents directed by it.
 - Nothing in this NOTICE relicenses third-party code under proprietary
   terms. Third-party components remain under their own licenses.
 - Material in this repository that is not published under the open source
   LICENSE, such as internal branches, prompts, configuration, model
-  weights and pricing logic, remains proprietary and confidential to The
-  Fire Dev LLC.
+  weights and pricing logic, remains proprietary and confidential to Tanner Osterkamp.
 
 TRADE SECRET
-- Non-public content of this repository is a trade secret of The Fire Dev
-  LLC. Access is limited to those bound by confidentiality obligations.
+- Non-public content of this repository is a trade secret of Tanner Osterkamp. Access is limited to those bound by confidentiality obligations.
 - Disclosing proprietary content to a public consumer AI service may
   destroy trade secret status. Use local or contractually confidential
   inference for proprietary material.
